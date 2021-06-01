@@ -24,6 +24,13 @@ class MiddleScreen extends StatelessWidget {
             child: VxSwiper(
               items: [
                 ProjectWidget(
+                    title: 'Shop',
+                    func: () {
+                      launch(
+                        '',
+                      );
+                    }),
+                ProjectWidget(
                     title: 'Autism',
                     func: () {
                       launch(
