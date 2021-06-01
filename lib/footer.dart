@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/coolors.dart';
 import 'package:portfolio/header.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class FooterScreen extends StatefulWidget {
@@ -12,16 +13,21 @@ class _FooterScreenState extends State<FooterScreen> {
   var stringWidget =
       "Need Flutter developer\nLet's talk".text.center.white.xl2.make();
 
-  var contactWidget = "programmer.taha.1y@gmail.com"
-      .text
-      .color(Coolors.accentColor)
-      .semiBold
-      .make()
-      .box
-      .border(color: Coolors.accentColor)
-      .p16
-      .rounded
-      .make();
+  var contactWidget = TextButton(
+    onPressed: () => launch(
+      'mailto:flutterdev.taha.saad@gmail.com',
+    ),
+    child: "flutterdev.taha.saad@gmail.com"
+        .text
+        .color(Coolors.accentColor)
+        .semiBold
+        .make()
+        .box
+        .border(color: Coolors.accentColor)
+        .p16
+        .rounded
+        .make(),
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -46,9 +52,7 @@ class _FooterScreenState extends State<FooterScreen> {
           ).w(context.safePercentWidth * 85).scale150().p16(),
         ),
         50.heightBox,
-        CustomAppBar().shimmer(
-          primaryColor: Coolors.accentColor,
-        ),
+        CustomAppBar().shimmer(primaryColor: Coolors.accentColor),
         10.heightBox,
         "Thanks for scrolling, ".richText.semiBold.white.withTextSpanChildren(
             ["that's all folks".textSpan.gray500.make()]).make(),
